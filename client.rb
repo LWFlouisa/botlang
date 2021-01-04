@@ -13,9 +13,14 @@ cmd = {
 }
 
 number = 0
+#
+#puts size_limit
 
 size_limit.times do
+
   def find_word
+#    puts "Hello World"
+
     number = 0
 
     # A list of all possible answers.
@@ -47,8 +52,6 @@ size_limit.times do
         open("results/#{correct_answer.tr ' ', '_'}.rb", "w") { |f|
           f.puts "puts '#{answer}' "
         }
-
-        abort
       else
         print "Incorrect: "; puts answer
       end
@@ -58,12 +61,16 @@ size_limit.times do
   end
 
   def retrieve_word
+#    puts "Hello World"
+
     print ">> "; find_script = gets.chomp
 
     system("ruby results/#{find_script}")
   end
 
   def improvise
+#    puts "Hello World"
+
     number = File.read("data/number/input.txt").strip.to_i
 
     # The dialogue script in question.
@@ -107,6 +114,8 @@ size_limit.times do
   end
 
   def run_aiml
+#    puts "Hello World"
+
     require 'programr'
 
     bot_name = "BIANCA"
@@ -140,9 +149,12 @@ size_limit.times do
     end
   end
 
-  task = cmd[input[number]]
+  task = cmd[input[number]].to_s
 
-  task
+  if    task ==     "find_word"; find_word
+  elsif task == "retrieve_word"; retrieve_word
+  elsif task ==      "run_aiml"; run_aiml
+  end
 
   number = number + 1
 
