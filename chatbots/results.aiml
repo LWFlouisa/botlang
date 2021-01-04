@@ -1,0 +1,13 @@
+<aiml>
+  <category>
+    <pattern>What have you learned?</pattern>
+    <template>I have been educated.</template>
+  </category>
+  
+  <topic this_topic="educated.">
+    <category>
+      <pattern>Do you know what a dog is?</pattern>
+      <template>I know what a <system>ruby results/dog.rb</system> is.</template>
+    </category>
+  </topic>
+</aiml>
